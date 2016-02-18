@@ -1,0 +1,100 @@
+body {
+    height: 100%;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #363636;
+    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.43), rgba(151, 147, 145, 0.22));
+    /*background-color: rgba(153, 150, 150, 0.34);*/
+    font-size: x-large;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+a {
+    color: rgba(7, 0, 89, 0.47);
+    text-decoration: none;
+}
+
+.selectScore {
+    margin-left: 10px;
+}
+
+.selectScoreRds{
+    margin-left: 10px;
+    width: 200px;
+}
+
+.selectScorePls{
+    margin-left: 10px;
+    width: 100px;
+}
+
+#tdVul{
+    background-color: #ff8e85;
+}
+
+#tablePointage{
+    width:90%;
+    margin: auto;
+    /*border: solid;*/
+}
+
+.tableFeuille{
+    margin: auto;
+    /*border: solid;*/
+}
+
+#contrat{
+    padding: 5px;
+    border: solid;
+}
+
+#tdVul{
+    padding: 5px;
+    border: solid;
+}
+
+#pointageNS{
+    padding: 5px;
+    border: solid;
+}
+
+#pointageEO{
+    padding: 5px;
+    border: solid;
+}
+
+.divEnregistrer{
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 500px;
+    height: 220px;
+    border: solid;
+    border-color: #363636;
+    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.50), rgba(151, 147, 145, 0.20));
+    background-color: #FFFFFF;
+}
+
+.divListe{
+    width: 500px;
+    height: 200px;
+    border: solid;
+    border-color: #363636;
+    margin: auto;
+}
+
+.divListeElem{
+    height: 28px;
+    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.50), rgba(151, 147, 145, 0.20));
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.formOuvrir{
+    float: right;
+    margin-bottom: 0;
+}

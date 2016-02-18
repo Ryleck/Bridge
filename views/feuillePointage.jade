@@ -1,0 +1,101 @@
+//
+   Created by Phil on 2016-01-31.
+
+extends layout
+block content
+    script(src='./javascripts/calculPointage.js')
+    h1= title
+    |Vulnérabilité
+    div#divVul=vulnerabilite
+    table#tablePointage
+        tr
+            td#contrat(rowspan='2') Étui
+            td#contrat(colspan='2') Équipes
+            td#contrat(rowspan='2') Contrat
+            td#contrat(rowspan='2') Par
+            td#contrat(rowspan='2') Entame
+            td#contrat(rowspan='2') Résultat
+            td#contrat(colspan='2') Points
+        tr
+            td#contrat N-S
+            td#contrat E-O
+            td#contrat N-S
+            td#contrat E-O
+        tr
+            td#contrat=planchette
+            !=equipes
+            td#contrat
+                select(id='nbLeves')
+                    option(value='', disabled, selected) Choisir
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
+                select(id='couleur')
+                    option(value='', disabled, selected) Choisir
+                    option(value='trefle') Trèfle
+                    option(value='carreau') Carreau
+                    option(value='coeur') Coeur
+                    option(value='pique') Pique
+                    option(value='sa') Sans atout
+                select(id='contre')
+                    option(value='r')
+                    option(value='x') x
+                    option(value='xx') xx
+            td#contrat
+                select(id='par')
+                    option(value='', disabled, selected) Choisir
+                    option(value='nord') Nord
+                    option(value='est') Est
+                    option(value='sud') Sud
+                    option(value='ouest') Ouest
+            td#contrat
+                select(id='entame')
+                    option(value='', disabled, selected) Choisir
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
+                    option(value='8') 8
+                    option(value='9') 9
+                    option(value='v') Valet
+                    option(value='d') Dame
+                    option(value='r') Roi
+                    option(value='a') As
+                select(id='couleurEntame')
+                    option(value='', disabled, selected) Choisir
+                    option(value='trefle') Trèfle
+                    option(value='carreau') Carreau
+                    option(value='coeur') Coeur
+                    option(value='pique') Pique
+            td#contrat
+                select(id='resultat', onchange='calcule()')
+                    option(value='', disabled, selected) Choisir
+                    option(value='6') +6
+                    option(value='5') +5
+                    option(value='4') +4
+                    option(value='3') +3
+                    option(value='2') +2
+                    option(value='1') +1
+                    option(value='0') =
+                    option(value='-1') -1
+                    option(value='-2') -2
+                    option(value='-3') -3
+                    option(value='-4') -4
+                    option(value='-5') -5
+                    option(value='-6') -6
+                    option(value='-7') -7
+                    option(value='-8') -8
+                    option(value='-9') -9
+                    option(value='-10') -10
+                    option(value='-11') -11
+                    option(value='-12') -12
+                    option(value='-13') -13
+            td#pointageNS
+            td#pointageEO
