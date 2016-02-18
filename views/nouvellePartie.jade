@@ -5,7 +5,7 @@ extends layout
 block content
     script(src='./javascripts/calculNbPlanchette.js')
     h1= title
-    form(action='mouvement' method='get')
+    form(action='feuilleNoms' method='get')
         | Nombre d'équipes
         select#selectNbEquipes(name='nbEquipes' class='selectScore' onchange='calculeNbRondes()')
             option(value='', disabled, selected) Choisir
