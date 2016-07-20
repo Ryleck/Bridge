@@ -15,10 +15,14 @@ var enregistre = require('./routes/enregistre');
 var existantes = require('./routes/existantes');
 var partie = require('./routes/partie');
 var mouvement = require('./routes/mouvement');
+var table = require('./routes/table');
+var terminer = require('./routes/terminer');
+var resultats = require('./routes/resultats');
+var mov = require('./node_modules/mouvement/mouvement');
+//var varPl = require('./node_modules/planchette/planchette');
 
 var app = express();
 
-var varPl = '1';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +46,11 @@ app.use('/enregistre', enregistre);
 app.use('/existantes', existantes);
 app.use('/partie', partie);
 app.use('/mouvement', mouvement);
+app.use('/table', table);
+app.use('/terminer', terminer);
+app.use('/resultats', resultats);
 
+mov.initMouvement();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

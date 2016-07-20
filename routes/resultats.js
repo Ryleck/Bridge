@@ -1,15 +1,34 @@
 /**
+ * Created by Phil on 2016-06-05.
+ */
+/**
  * Created by Phil on 2016-02-03.
  */
 var express = require('express');
 var router = express.Router();
 var tableau = require('../node_modules/tableau/tableau');
-var lettre = require('../node_modules/lettre-equipe/lettreEquipe');
+var varPl = require('../node_modules/planchette/planchette');
 
 
 router.get('/', function(req, res, next) {
-    res.render('feuillePartie', { title: 'Feuille de partie', feuille: creeFeuille(req)});
+    compilerResultats();
+    res.render('resultats', { title: 'Resultats'});
 });
+
+function compilerResultats(){
+    var nbPL = parseInt(tableau.retourneNombrePlanchette());
+    var nbPlj = (parseInt(tableau.retourneNombreDEquipe())/2);
+    var nbTable = varPl.getPartie().length;
+    var tResul = [];
+
+    for(i = 1; i <= nbTable; i++){
+        for(j = 1; j <= nbPL; j++) {
+            tResul.push(varPl.getPlanchette(i, j));
+        }
+    }
+
+    console.log(tResul);
+}
 
 function creeFeuille(req){
     var feuille = '';
@@ -66,21 +85,21 @@ function valeurCellule(i, j, nbE){
     if((i == 2) && ( j == 0)){
         texteCellule = 'Jeu';
     }/*else if((i > 2) && ( j == 0)){
-        texteCellule = (i-2).toString();
-    }else if((i == 2) && ( j > 0)){
-        texteCellule = 'Ã‰quipe ' + lettre.retourneLettre(j-1);
-    }*/else{
+     texteCellule = (i-2).toString();
+     }else if((i == 2) && ( j > 0)){
+     texteCellule = 'Équipe ' + lettre.retourneLettre(j-1);
+     }*/else{
         texteCellule = tableau.retourneTableauPosition(i, j);
     }
     /*if((i == 0) && ( j > 0)){
-        texteCellule = tableau.retourneTableauPosition(i, j);
-    }
-    if((i == 1) && ( j > 0)){
-        texteCellule = tableau.retourneTableauPosition(i, j);
-    }
-    if((tableau.retournePhantome() == true) && (i > 2) && ( j == nbE)){
-        texteCellule = tableau.retourneTableauPosition(i, j);
-    }*/
+     texteCellule = tableau.retourneTableauPosition(i, j);
+     }
+     if((i == 1) && ( j > 0)){
+     texteCellule = tableau.retourneTableauPosition(i, j);
+     }
+     if((tableau.retournePhantome() == true) && (i > 2) && ( j == nbE)){
+     texteCellule = tableau.retourneTableauPosition(i, j);
+     }*/
     return texteCellule;
 }
 

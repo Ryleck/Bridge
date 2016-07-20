@@ -34,6 +34,18 @@ a {
     background-color: #ff8e85;
 }
 
+.txtPoints{
+    width: 40px;
+    text-align: center;
+}
+
+.divTermine{
+    width: 400px;
+    padding: 5px;
+    margin: auto;
+    text-align: justify;
+}
+
 #tablePointage{
     width:90%;
     margin: auto;
@@ -83,6 +95,7 @@ a {
     border: solid;
     border-color: #363636;
     margin: auto;
+    overflow-y: scroll;
 }
 
 .divListeElem{

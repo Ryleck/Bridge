@@ -6,7 +6,8 @@ var router = express.Router();
 var fs = require('fs');
 var xml2js = require('xml2js');
 var toA = require('../node_modules/toArray/toArray');
-var tableau = require('../node_modules/tableau/tableau');-
+var tableau = require('../node_modules/tableau/tableau');
+var varPl = require('../node_modules/planchette/planchette');
 
 router.get('/', function(req, res, next) {
     var nom = req.query.nom;
@@ -28,15 +29,19 @@ function listerTables(){
     var boutons = '';
     var nbE = tableau.retourneNombreDEquipe();
     var nbT = 0;
+    var iPhantome = 1;
 
     if(tableau.retournePhantome() == true){
         nbE = nbE - 1;
+        iPhantome = 2;
     }
 
     nbT = (parseInt(nbE)/2);
 
+    varPl.initPartie();
     for(i = 0; i < Math.floor(nbT); i ++){
-        boutons = boutons + '<form action="table" method="get"><input type="hidden" name="table" value="'+(i+1)+'"><input type="submit" value="Table '+(i+1)+'"></form>';
+        boutons = boutons + '<form action="table" method="get"><input type="hidden" name="genere" value="1"><input type="hidden" name="ronde" value="1"><input type="hidden" name="table" value="'+(i+iPhantome)+'"><input type="submit" value="Table '+(i+1)+'"></form>';
+        varPl.ajouteTable(i+1);
     }
     return boutons;
 }
