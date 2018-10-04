@@ -3,6 +3,26 @@
 
 extends layout
 block content
+   script(src='./javascripts/jquery-3.1.1.js')
    script(src='./javascripts/enregistrerFeuille.js')
-   h1=title
-   !=feuille
+   script(src='./javascripts/calculScore.js')
+   script(src="./javascripts/affiche_new.js")
+   script(src='./javascripts/requeteAJAX.js')
+
+   div#divScreen
+   div#divResultPlanchette
+      div#divResults
+      input#btnFermer.btnAjaxAnnuler(type="button" value="Fermer")
+   div#divAcces!=rondesEtPlanchettes
+   div#divPartie!=indexPartieInput
+   div.divPage
+
+      h1.spanBlue R&eacute;sultats
+      div#divTableauRes
+         div#divNoms!=nomsJoueurs
+         //div#divResul
+            span Planchettes
+      //!=feuilleRes
+      br
+      input#btnActualiser(type="submit" value="Actualiser" class="bouton")
+      input#btnExporter(type="submit" value="Exporter" class="bouton")

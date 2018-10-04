@@ -3,5 +3,9 @@
 
 extends layout
 block content
-    h1=title
-    div(class='divListe')!=liste
+    div.divPage
+        img(src="images/baraja-de-cartas-americanas.png" alt="Cartes" class="imageCartes")
+        script(src="//code.jquery.com/jquery-1.11.1.min.js")
+        script(id="scriptDelete",src="javascripts/ajaxDelete.js")
+        h1=title
+        div(class='divListe')!=liste

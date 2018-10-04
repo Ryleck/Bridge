@@ -10,11 +10,19 @@ router.get('/', function(req, res, next) {
 });
 
 function creeListe(){
-    var listeArray = fs.readdirSync('./fichiers/');
+    var dir = './fichiers/parties/';
+    var listeArray = fs.readdirSync(dir);
+    listeArray.sort(function(a, b) {
+        return fs.statSync(dir + a).mtime.getTime() -
+            fs.statSync(dir + b).mtime.getTime();
+    });
+    listeArray.reverse();
     var liste = '';
     for (i = 0; i < listeArray.length; i++){
-        liste = liste + '<div class="divListeElem">' + listeArray[i] +
-        '<form action="partie" method="get" class="formOuvrir"><input name="nom" type="hidden" value="'+ listeArray[i] +'"><input type="submit" value="Ouvrir"></form>' +
+        liste = liste + '<div class="divListeElem"><div class="nomFichier">' + listeArray[i] +
+        '</div><form action="partie" method="get" class="formOuvrir"><input name="nom" type="hidden" value="'+ listeArray[i] +'"><input type="submit" value="Ouvrir" class="boutonListe"></form>' +
+        //'<button type="button" id="iButtonResultat" name="'+ listeArray[i] +'" class="boutonListe">R&eacute;sultat</button>' +
+        '<button type="button" id="iButtonDelete" name="'+ listeArray[i] +'" class="boutonListeSupp">X</button>' +
         '</div>';
     }
     //console.log(liste);

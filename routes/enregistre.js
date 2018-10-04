@@ -8,13 +8,13 @@ var fs = require('fs');
 
 router.get('/', function(req, res, next) {
     sauvgarder(req.query.nomFichier);
-    res.render('index', { title: 'Bridge du vendredi soir' , name:'bridge du vendredi soir'});
+    res.render('index', { title: 'Soir&eacute;e de bridge' , name:'soir&eacute;e de bridge'});
 });
 
 function sauvgarder(nom){
 
     var sXML = toXML.toXMLString();
-    fs.writeFile("./fichiers/"+nom+".xml", sXML, function(err) {
+    fs.writeFile("./fichiers/parties/"+nom+".xml", sXML, function(err) {
         if(err) {
             return console.log(err);
         }

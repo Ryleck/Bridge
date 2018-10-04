@@ -1,0 +1,26 @@
+//
+   Created by Phil on 2016-02-23.
+
+extends layout
+block content
+   script(src='./javascripts/jquery-3.3.1.js')
+   //script(src='./javascripts/jquery-ui.js')
+   script(src='./javascripts/calculScore.js')
+   script(src="./javascripts/affiche_new.js")
+   script(src='./javascripts/requeteAJAX.js')
+   //script(src='./javascripts/jquery.mobile-1.4.5.js')
+
+   div#divResolution
+   div#divScreen
+   div#divSpinner
+   div#divPlus
+      div#divPlusSigne &laquo;
+   div#divScreenPlus
+   div#divMessagePlJouee
+      h2 Attention
+      span Cette planchette &agrave; d&eacute;j&agrave; &eacute;t&eacute; jou&eacute;e. Voulez-vous vraiment charger cette planchette?
+      br
+      br
+      input#btnNon(type="button" value="Non")
+      input#btnOui(type="button" value="Oui")
+   div#divMainAjax!=divMainAjax

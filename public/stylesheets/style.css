@@ -1,19 +1,48 @@
 body {
-    height: 100%;
-    padding: 50px;
+
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     text-align: center;
-    color: #363636;
-    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.43), rgba(151, 147, 145, 0.22));
-    /*background-color: rgba(153, 150, 150, 0.34);*/
+    color: #e6edf0;
+
+    background-image: url("../images/StockSnap_45A9AEAEDC.jpg");
+    background-color: #4c4c4c;
+    background-size: cover;
     font-size: x-large;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin: 0;
+    z-index: -2;
 }
 
-a {
-    color: rgba(7, 0, 89, 0.47);
+#divResolution{
+    display: none;
+    position: absolute;
+    top : 10px;
+    left : 10px;
+    border: solid 2px #747474;
+    background-color: black;
+}
+
+.divNomEquipes{
+    display: inline-block;
+    width: 260px;
+    border: solid 2px #747474;
+    padding: 5px;
+    margin: 5px;
+}
+
+.title{
+    display: inline-block;
+    margin: 10px;
+}
+
+a, .spanBlue {
+    color: #66c0ec;
     text-decoration: none;
+}
+
+.spanRed {
+    color: #ff8e85;
 }
 
 .selectScore {
@@ -30,13 +59,15 @@ a {
     width: 100px;
 }
 
-#tdVul{
-    background-color: #ff8e85;
-}
-
 .txtPoints{
-    width: 40px;
+    color: #66c0ec;
+    background-color: transparent;
+    border: none;
+    width: 60px;
     text-align: center;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 24px;
 }
 
 .divTermine{
@@ -62,9 +93,16 @@ a {
     border: solid;
 }
 
-#tdVul{
+.contrat{
     padding: 5px;
     border: solid;
+}
+
+.tdVul{
+    padding: 5px;
+    border: solid;
+    background-color: #ff8e85;
+    color: #3e4244;
 }
 
 #pointageNS{
@@ -84,30 +122,1043 @@ a {
     width: 500px;
     height: 220px;
     border: solid;
-    border-color: #363636;
-    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.50), rgba(151, 147, 145, 0.20));
-    background-color: #FFFFFF;
+    border-color: #e6edf0;
+    background-color: #3e4244;
+    /*background: linear-gradient(to bottom right, rgba(56, 39, 39, 0.65), rgba(151, 147, 145, 0.20));
+    background-color: #FFFFFF;*/
+}
+
+.divPage{
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 800px;
+    height: 100%;
+    min-height: 100vh;
+    margin: auto;
+
+}
+
+.divBlackVStrip{
+    z-index: -1;
+    top: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 900px;
+    height: 100%;
+    margin: auto;
 }
 
 .divListe{
-    width: 500px;
+    width: 580px;
+    /*width: 600px;
     height: 200px;
     border: solid;
-    border-color: #363636;
+    border-color: #e6edf0;*/
     margin: auto;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
+}
+
+.champsNom{
+    font-size: 20px;
+    width: 150px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.selectNom{
+    display: block;
+    font-size: 20px;
+    width: 100%;
+}
+
+.imageCartes{
+    width: 250px;
+}
+
+.bouton{
+    text-decoration: none;
+    background-color: #66c0ec;
+    border: none;
+    color: #3e4244;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.boutonRdnS{
+    text-decoration: none;
+    background-color: #66c0ec;
+    border: none;
+    color: #3e4244;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    width : 120px;
+}
+
+.boutonListe{
+    text-decoration: none;
+    background-color: #66c0ec;
+    border: none;
+    color: #3e4244;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    margin: 3px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.boutonListeSupp{
+    text-decoration: none;
+    background-color: #ff8e85;
+    border: none;
+    color: #3e4244;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.divChampsNom{
+    font-size: large;
+    width: 150px;
+    margin-left: 7px;
+    margin-right: 7px;
+    display: inline-block;
+    padding: 0;
 }
 
 .divListeElem{
     height: 28px;
-    background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.50), rgba(151, 147, 145, 0.20));
-    background-color: #FFFFFF;
+    /*background: linear-gradient(to bottom right, rgba(4, 78, 132, 0.50), rgba(151, 147, 145, 0.20));
+    background-color: #FFFFFF;*/
     text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin: 30px 5px;
+
 }
 
 .formOuvrir{
-    float: right;
+    display: inline-block;
     margin-bottom: 0;
+}
+
+.nomFichier{
+    display: inline-block;
+    width: 425px;
+}
+
+#divPl{
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+}
+
+.divEtuiGauche{
+    width: 18%;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.divEtuiDroit{
+    width: 82%;
+    display: inline-block;
+}
+
+.divEtui{
+    width: 50px;
+    height: 30px;
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.divEtuiNoActif{
+    width: 50px;
+    height: 50px;
+    /*position: relative;*/
+    background-color: #66c0ec;
+    color: #3e4244;
+    /*left: 0;*/
+    margin: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 5px;
+    line-height: 50px;
+}
+
+.divEtuiNoInactif{
+    width: 50px;
+    height: 50px;
+    /*position: relative;*/
+    background-color: #b2b6b8;
+    color: #3e4244;
+    /*left: 0;*/
+    margin: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 5px;
+    line-height: 50px;
+}
+
+.divEtuiActif{
+    display: block;
+    /*position: relative;*/
+    /*top: 0;*/
+    /*left: 65px;*/
+    /*height: 200px;*/
+}
+
+.divEtuiInactif{
+    display: none;
+
+}
+
+.styled-select1, .styled-select2, .styled-select3, .styled-select4 {
+    display: inline-block;
+    height: 40px;
+    overflow: hidden;
+    min-width: 110px;
+    margin: 10px;
+}
+
+.styled-select2 {
+    width: 150px;
+}
+
+.styled-select3 {
+    width: 70px;
+}
+
+.styled-select4 {
+    width: 120px;
+}
+
+.styled-select1 select, .styled-select2 select, .styled-select3 select, .styled-select4 select {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    cursor: pointer;
+}
+
+.semi-square {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.blue    { background-color: #66c0ec; }
+
+.grey {background-color: #b2b6b8}
+
+.blue select    { color: #3e4244; }
+.grey select {color: #d5d9db;}
+
+.spanCat{
+    display: block;
+}
+
+.spanEq{
+    color: #66c0ec;
+    text-shadow: 1px 1px 2px #313131, 0 0 5px #e6edf0;
+    padding: 5px;
+}
+
+.spanEqVul{
+    color: #ff8e85;
+    text-shadow: 1px 1px 2px #313131, 0 0 5px #e6edf0;
+    padding: 5px;
+}
+
+
+.spanEqT{
+    border: 1px solid #313131;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px #313131;
+    font-size: xx-large;
+}
+
+.spanVs{
+    color: #ff8e85;
+    padding: 5px;
+    text-shadow: 1px 1px 2px #313131, 0 0 5px #e6edf0;
+}
+
+.spanCatVul{
+    display: block;
+    color: #ff8e85;
+}
+
+.dCat{
+    display: inline-block;
+    vertical-align: middle;
+    /*border: 1px solid #313131;*/
+    border: solid 1px #b2b6b8;
+    margin: 5px;
+    padding: 5px;
+   /* border-radius: 5px;
+    box-shadow: 1px 2px 4px #313131;*/
+}
+
+.divVs{
+    margin-bottom: 10px;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li{
+    display: inline-block;
+    vertical-align: top;
+}
+
+hr{
+   /* margin: 0 auto;*/
+    width: 95%;
+}
+
+.radio {
+    display: none;
+}
+.label {
+    margin: 5px;
+    padding: 5px 10px;
+    color: #3e4244;
+    vertical-align: middle;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+    /*font-size: xx-large;*/
+    display: inline-block;
+}
+
+.divPasse{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#contratResume{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-size: 17px;
+    display: block;
+    text-align: left;
+    max-width: 150px;
+}
+
+#sousContraResume {
+    color: #66c0ec;
+}
+
+#divMessagePlJouee{
+    display: none;
+    position: fixed;
+    top: 5px;
+    left: calc(50vw - 210px);
+    margin: auto;
+    width: 400px;
+    min-height: 250px;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px #b2b6b8;
+    background-color: #ff8e85;
+    color: #313131;
+    z-index: 11;
+}
+
+#divAcces{
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+    z-index: 10;
+}
+.divAccesRondes{
+    border: solid 1px #b2b6b8;
+    text-align: left;
+    padding: 2px 5px;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 3px;
+    border-radius: 5px;
+
+}
+.divAccesRondesUnSel{
+    transition: height 1s;
+    height: 28px;
+}
+
+.divAccesRondesSel{
+    /*transition: height 1s;
+    height: 0;*/
+}
+
+.divAccesRondeActive{
+    border: solid 1px #66c0ec;
+    color: #66c0ec;
+    text-shadow: 1px 1px 2px #313131, 0 0 5px #e6edf0;
+
+}
+
+.divAccesRondeFinie{
+    border: solid 1px #747474;
+    color: #747474;
+}
+
+.divAccPlan{
+    border: solid 1px #b2b6b8;
+    color: #e6edf0;
+    font-size: smaller;
+    padding: 8px 5px;
+    margin: 3px;
+    text-shadow: none;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.divAccesPlanActive{
+    border: solid 1px #66c0ec;
+    color: #66c0ec;
+    text-shadow: 1px 1px 2px #313131, 0 0 5px #e6edf0;
+}
+
+.divAccesPlanFinie{
+    border: solid 1px #747474;
+    color: #747474;
+    text-shadow: none;
+ }
+
+.inputPlanchettes{
+    height: 100%;
+    width: 100%;
+    /*text-decoration: none;*/
+    border: none;
+    text-align: left;
+    margin: 0;
+    font: inherit;
+    background-color: transparent;
+    color: inherit;
+    padding: 5px 5px;
+    text-shadow: inherit;
+}
+
+#divTableauRes{
+    vertical-align: bottom;
+}
+
+#divNoms{
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+#divResul{
+    display: inline-block;
+    min-width: 900px;
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+}
+
+.dNomsResultat{
+    /*min-width: 250px;**/
+    /*text-align: right;*/
+}
+
+
+
+.divNoPl{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1px;
+    font-size: x-small;
+    color: #66c0ec;
+    border: solid 1px #66c0ec;
+    z-index: 2;
+}
+
+.dTotal{
+    /*min-width: 120px;*/
+    /*text-align: left;*/
+}
+.dResultEquipe, .dPointage {
+    display: inline-block;
+}
+
+.dResultEquipe, .dNomsResultat, .dPointage, .dTotal{
+    padding : 5px 5px;
+    /*width: 100%;*/
+    border: solid 1px #b2b6b8;
+    text-align: center;
+}
+
+.dPointage{
+    padding: 0;
+    min-width: 38px;
+    position: relative;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.divCouleurResult{
+    padding: 5px;
+    z-index: 1;
+}
+
+.dResultEquipe{
+    width: 350px;
+    margin: 5px;
+    border: solid 1px #666666;
+}
+
+/*.label:hover, .divCouleur:hover{
+    background-color: #66c0ec;
+}*/
+
+.labelScoreSel, .labelEntameSel, .divCouleurConSel, .divCouleurEntameSel, .labelFaitSigneSel, .labelFaitSel, .labelParSel, .labelContreSel{
+    background-color: #66c0ec;
+}
+
+.labelScoreUnSel, .labelEntameUnSel, .divCouleurConUnSel, .divCouleurEntameUnSel, .labelFaitSigneUnSel, .labelFaitUnSel, .labelParUnSel, .labelContreUnSel{
+    background-color: #b2b6b8;
+}
+
+.labelFaitUnSel{
+    /*display: none;*/
+}
+
+.labelFaitDisplay{
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.labelFait{
+    display: block;
+    font-size: small;
+}
+
+.divFait{
+    cursor: pointer;
+    border: solid 1px #b2b6b8;
+    border-radius: 5px;
+    margin: 5px;
+    display: block;
+ }
+
+.divFaitSel{
+    border-color: #66c0ec;
+}
+
+/*.divFait:hover > .labelFaitDisplay{
+    background-color: #66c0ec;
+    border-color: #66c0ec;
+
+}
+
+.divFait:hover {
+    border-color: #66c0ec;
+
+}*/
+
+.imgScore {
+    height: 35px;
+}
+
+.divAccDirect{
+    display: inline-block;
+    border: solid 1px #b2b6b8;
+    padding : 5px;
+    margin: 5px;
+}
+
+.divAccDirectTitre{
+    display: inline-block;
+    padding : 5px 0;
+    margin: 5px 0;
+    text-align: right;
+}
+
+.spanAccDirectPl{
+    margin-right: 5px;
+    cursor: pointer;
+    color: #66c0ec;
+}
+
+.spanAccDirectPl:last-child{
+    margin-right: 0;
+}
+
+.divCSub{
+    vertical-align: middle;
+}
+
+.h2Table{
+    display: inline-block;
+    margin: 5px;
+}
+
+.divEquipes{
+    display: inline-block;
+    margin: 10px;
+    border: solid 1px #b2b6b8;
+    padding: 10px;
+    max-width: 375px;
+}
+
+.divCouleur {
+    padding: 10px 0;
+    height: 35px;
+    width: 55px;
+    margin: 5px;
+    color: #3e4244;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+
+/*.divCouleur:hover{
+    background-color: #66c0ec;
+}
+
+.divCouleurConSel, .divCouleurEntameSel{
+    background-color: #66c0ec;
+}
+
+.divCouleurConUnSel, .divCouleurEntameUnSel{
+    background-color: #b2b6b8;
+}*/
+
+.h1Section{
+    color: #66c0ec;
+    margin: 10px 0;
+    z-index: -1;
+}
+
+.divPage h1{
+    margin: 0;
+    padding-top: 15px;
+}
+
+.divMain{
+    text-align: center;
+    width: 745px;
+    height: 340px;
+    z-index: 2;
+    margin: auto;
+}
+
+#divVal, #divPasse{
+    display: none;
+    position: fixed;
+    top: 5px;
+    left: calc(50vw - 360px);
+    margin: auto;
+    width: 700px;
+    min-height: 350px;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px #b2b6b8;
+    background-color: #3e4244;
+    z-index: 11;
+}
+
+#divResultPlanchette{
+    display: none;
+    position: fixed;
+    top: 5px;
+    left: calc(50vw - 360px);
+    margin: auto;
+    width: 700px;
+    min-height: 350px;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px #b2b6b8;
+    background-color: #3e4244;
+    z-index: 11;
+}
+
+.divPlJouees, .divPlJoueesResul{
+    font-size: smaller;
+    text-align: left;
+}
+
+.divPlJoueesResul{
+    border: solid 1px #b2b6b8;
+    padding: 3px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+
+.divValidation{
+    margin: 5px 0;
+}
+
+#divSpinner{
+    display: none;
+    position: fixed;
+    top: calc(50vh - 60px);
+    left: calc(50vw - 60px);
+    border: 16px solid #b2b6b8; /* Light grey */
+    border-top: 16px solid #66c0ec; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    z-index: 12;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#divScreen, #divScreenPlus{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3e4244;
+    opacity: 0.5;
+    z-index: 9;
+}
+
+
+
+.divSousSectionSauterPasse{
+    display: inline-block;
+    width: 59%;
+    border-right: solid 1px #b2b6b8;
+    height: 100%;
+    vertical-align: top;
+}
+
+.divSousSectionSauterPasse:last-child{
+    width: 39%;
+    border-right: none;
+}
+
+.divEnteteSelect{
+    background-color: #66c0ec;
+    color: #3e4244;
+    transition: background-color 1s, color 1s;
+}
+
+.divEnteteUnSelect{
+    background-color: #ff8e85;
+    color: #3e4244;
+    transition: background-color 1s, color 1s;
+}
+
+.divEnteteDisSelect{
+    background-color: #a6a6a6;
+    color: #d5d9db;
+
+}
+
+/*#divEnteteResultat, #divEnteteAD{
+    background-color: #ff8e85;
+    color: #3e4244;
+}
+
+#divEnteteAD{
+    background-color: #ff8e85;
+    color: #3e4244;
+}*/
+
+.divEntete{
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    border: solid 1px #b2b6b8;
+}
+
+
+
+.divSousEntete{
+    position: relative;
+    -ms-transform:rotate(270deg); /* IE 9 */
+    -moz-transform:rotate(270deg); /* Firefox */
+    -webkit-transform:rotate(270deg); /* Safari and Chrome */
+    -o-transform:rotate(270deg); /* Opera */
+    left: -80px;
+    top: 215px;
+    font-weight: bold;
+    font-size: larger;
+    width: 200px;
+    text-align: left;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.divSectionSel{
+    width: 550px;
+}
+
+.divSectionUnSel{
+    width: 0;
+}
+
+/*#divSectionResultat{
+    width: 0;
+
+}*/
+
+.divSection{
+    height: 100%;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    border: solid 1px #b2b6b8;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.divSSBordureBleue{
+    width: 100%;
+    display: none;
+    height: 20px;
+    background-color: #66c0ec;
+}
+
+.divSousSectionSel{
+    position: relative;
+
+    opacity: 1;
+    transition: opacity 4s;
+}
+
+.divSousSectionUnSel{
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.btnAjax, .btnAjaxDis, .btnAjaxAnnuler, #btnOui, #btnNon{
+    font-size: x-large;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.btnAjax{
+     color: #3e4244;
+     background-color: #66c0ec;
+ }
+
+.btnAjaxAnnuler, .btnPasse{
+    color: #3e4244;
+    background-color: #ff8e85;
+}
+
+#btnOui{
+    color: #66c0ec;
+    background-color: #3e4244;
+}
+
+#btnNon{
+    color: #ff8e85;
+    background-color: #3e4244;
+}
+
+.btnAjaxDis{
+    color: #d5d9db;
+    background-color: #b2b6b8;
+}
+
+#listeDesNoms{
+    width: 70%;
+    height: 400px;
+    border: solid 1px #b2b6b8;
+    margin: 20px auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.divNom{
+    border: solid 1px #b2b6b8;
+    width: 100%;
+    text-align: left;
+    padding: 2px 5px;
+}
+
+#divPlus{
+    display: none;
+    position: fixed;
+    top: 5px;
+    right: 0;
+    font-size: larger;
+    /*padding: 0 5px;*/
+    height: 37px;
+    width: 30px;
+    border: solid 1px #b2b6b8;
+    border-right: none;
+    background-color: #313131;
+    border-radius: 15px 0 0 15px;
+    z-index: 11;
+    vertical-align: middle;
+    transition: 0.5s;
+}
+
+#divPlusSigne{
+    vertical-align: middle;
+}
+.brFaitMobile{
+    display: none;
+}
+@media screen and (max-width: 1160px) {
+    .dResultEquipe, .divListe, .nomFichier{
+        width: auto;
+    }
+
+    .divListeElem{
+        height: auto;
+        margin: 10px 5px;
+    }
+
+    .nomFichier{
+        display: block;
+    }
+
+    .brFaitMobile{
+        display: inline-block;
+    }
+
+    .divEntete, .brEntame{
+        display: none;
+    }
+
+    #divAcces{
+        width: 0;
+        position: fixed;
+        background-color: #313131;
+        transition: 0.5s;
+    }
+
+    .divSection{
+        margin-bottom: 20px;
+    }
+
+    .divSection:last-child{
+        margin-bottom: 0;
+    }
+
+    .divSectionSel, .divSectionUnSel, .divPage{
+        width: 100%;
+    }
+
+    .divSectionUnSel{
+
+    }
+    #divVal{
+        padding: 10px 0;
+        border: none;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    #divPasse{
+        padding: 10px 0;
+        border: none;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    .divMain{
+        width: 99%;
+        height: auto;
+    }
+    .divSousSectionUnSel{
+        height: 0;
+        position: relative;
+        opacity: 1;
+    }
+
+    .divSSBordureBleue, .divSection, #divPlus{
+        display: block;
+    }
+
+    body{
+        background-image: none;
+    }
+
+    .divContraResume{
+        display: inline-block;
+        margin-bottom: 10px;
+        padding-right: 5px;
+    }
+    #contratResume{
+        max-width: 100%;
+    }
+    .divPage h1{
+        padding-top: 20px;
+    }
+
+    .divSectionMedia{
+        height: 100%;
+        padding-bottom: 20px;
+    }
 }

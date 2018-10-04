@@ -1,9 +1,12 @@
 extends layout
 
 block content
-    h1= title
-    p Bienvenue au  #{name}
-    br
-    a#lien(href='/nouvellePartie') Nouvelle partie
-    p
-    a#lien(href='/existantes') Parties existantes
+    div.divPage
+        img(src="images/baraja-de-cartas-americanas.png" alt="Cartes" class="imageCartes")
+        h1!=title
+        p Bienvenue &agrave; la&nbsp;
+            !=name
+        br
+        a#lien(href='/nouvellePartie') Nouvelle partie
+        p
+        a#lien(href='/existantes') Parties existantes

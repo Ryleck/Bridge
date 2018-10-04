@@ -1,0 +1,353 @@
+
+ //  Created by Phil on 2018-02-14.
+
+div#divAcces!=rondesEtPlanchettes
+div#divVal
+   div.divValidation
+      span Veuillez valider le r&eacutesultat de la planchette.
+   div.divValidation
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeNS
+            span &nbsp;Nord - Sud
+         div
+            !=nomsNS
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeEO
+            span &nbsp;Est - Ouest
+         div
+            !=nomsEO
+   div.divValidation
+      span Contrat :&nbsp;
+      span#contratValidation
+   div.divValidation
+      span Entame :&nbsp;
+      span#entameValidation
+   div.divValidation
+      span R&eacute;sultat :&nbsp;
+      span#resultatValidation
+   div.divValidation
+      span.spanEq Points
+      div.dCat
+         span!=equipeNS
+         span#spanPNS.txtPoints 0
+      div.dCat
+         span!=equipeEO
+         span#spanPEO.txtPoints 0
+   input#btnReqAnnuler.btnAjaxAnnuler(type="button" value="Annuler")
+   input#btnReqAJAX.btnAjax(type="button" value="Valider")
+div#divPasse
+   div.divValidation
+      span Veuillez valider le r&eacutesultat de la planchette.
+   div.divValidation
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeNS
+            span &nbsp;Nord - Sud
+         div
+            !=nomsNS
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeEO
+            span &nbsp;Est - Ouest
+         div
+            !=nomsEO
+   div.divValidation
+      span Contrat : passe;
+   div.divValidation
+      span Entame : passe;
+   div.divValidation
+      span R&eacute;sultat : passe;
+   div.divValidation
+      span.spanEq Points
+      div.dCat
+         span!=equipeNS
+         span#spanPNS.txtPoints 0
+      div.dCat
+         span!=equipeEO
+         span#spanPEO.txtPoints 0
+   input#btnReqAnnuler.btnAjaxAnnuler(type="button" value="Annuler")
+   input#btnReqAJAX.btnAjax(type="button" value="Valider")
+div.divPage
+   h1(class="title")!=title2
+   div
+      h2.h2Table Ronde&nbsp;
+         span.spanEq=ronde
+      h2.h2Table Planchette&nbsp;
+         span.spanEq=planchette
+   div
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeNS
+            span &nbsp;Nord - Sud
+         div
+            !=nomsNS
+      div.divEquipes
+         div
+            span &Eacute;quipe&nbsp;
+            span!=equipeEO
+            span &nbsp;Est - Ouest
+         div
+            !=nomsEO
+   form#formPlanchette
+      input(type="hidden" name="table" value=table)
+      input(type="hidden" name="indexPartie" value=indexPartie)
+      input(type="hidden" name="idPlanchette" value=idPl)
+      div(class="divMain")
+         //div#divEnteteAD(class="divEntete divEnteteUnSelect" onclick="afficheAD()")
+            div(class='divSousEntete') Aller &agrave; / Passe
+         //div#divSectionAD(class="divSection divSectionUnSel")
+            div.divSousSectionUnSel
+               div.divSousSectionSauterPasse
+                  h2(class="h1Section") Aller &agrave;
+                  !=accesDirect
+                  br
+                  input#btnReqAJAXAccesDirect.btnAjaxDis(type="button" value="Aller" disabled)
+               div.divSousSectionSauterPasse
+                  h2(class="h1Section") Passe
+                  input#btnPasse.btnAjax.btnPasse(type="button" value="Passe")
+         div#divEnteteContrat(class="divEntete divEnteteSelect" onclick="afficheContrat()")
+            div(class='divSousEntete') Contrat
+         div#divSectionContrat(class="divSection divSectionSel")
+            div.divSousSectionSel
+               div.divPasse
+                  input#btnPasse.btnAjax.btnPasse(type="button" value="Passe")
+               h1(class="h1Section") Contrat
+               ul
+                  li
+                     input(type='radio' value='1' name='nbLeves' id='radio1' class="radio radioScore")
+                     label(for='radio1' class="label labelScoreUnSel" onclick="selLevees(this)") 1
+                  li
+                     input(type='radio' value='2' name='nbLeves' id='radio2' class="radio radioScore")
+                     label(for='radio2' class="label labelScoreUnSel" onclick="selLevees(this)") 2
+                  li
+                     input(type='radio' value='3' name='nbLeves' id='radio3' class="radio radioScore" )
+                     label(for='radio3' class="label labelScoreUnSel" onclick="selLevees(this)") 3
+                  li
+                     input(type='radio' value='4' name='nbLeves' id='radio4' class="radio radioScore")
+                     label(for='radio4' class="label labelScoreUnSel" onclick="selLevees(this)") 4
+                  li
+                     input(type='radio' value='5' name='nbLeves' id='radio5' class="radio radioScore")
+                     label(for='radio5' class="label labelScoreUnSel" onclick="selLevees(this)") 5
+                  li
+                     input(type='radio' value='6' name='nbLeves' id='radio6' class="radio radioScore")
+                     label(for='radio6' class="label labelScoreUnSel" onclick="selLevees(this)") 6
+                  li
+                     input(type='radio' value='7' name='nbLeves' id='radio7' class="radio radioScore")
+                     label(for='radio7' class="label labelScoreUnSel" onclick="selLevees(this)") 7
+                  div(style="display:inline-block; width: 20px;")
+                  li
+                     input(type='radio' value='1' name='contre' id='radioCtr1' class="radio" onchange="calcule()" checked)
+                     label(for='radioCtr1' class="label labelContreSel" onclick="selContre(this)") &nbsp;
+                  li
+                     input(type='radio' value='2' name='contre' id='radioCtr2' class="radio" onchange="calcule()")
+                     label(for='radioCtr2' class="label labelContreUnSel" onclick="selContre(this)") X
+                  li
+                     input(type='radio' value='3' name='contre' id='radioCtr3' class="radio" onchange="calcule()")
+                     label(for='radioCtr3' class="label labelContreUnSel" onclick="selContre(this)") XX
+               hr
+               ul
+                  li
+                     input(type='radio' value='1' name='couleur' id='radioTr' class="radio" onchange="calcule()")
+                     label(for='radioTr')
+                        div(class="divCouleur divCouleurConUnSel" onclick="selLeveesCoul(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/1b.png")
+                  li
+                     input(type='radio' value='2' name='couleur' id='radioCa' class="radio" onchange="calcule()")
+                     label(for='radioCa')
+                        div(class="divCouleur divCouleurConUnSel" onclick="selLeveesCoul(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/2b.png")
+                  li
+                     input(type='radio' value='3' name='couleur' id='radioCo' class="radio" onchange="calcule()")
+                     label(for='radioCo')
+                        div(class="divCouleur divCouleurConUnSel" onclick="selLeveesCoul(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/3b.png")
+                  li
+                     input(type='radio' value='4' name='couleur' id='radioPi' class="radio" onchange="calcule()")
+                     label(for='radioPi')
+                        div(class="divCouleur divCouleurConUnSel" onclick="selLeveesCoul(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/4b.png")
+                  li
+                     input(type='radio' value='5' name='couleur' id='radioSA' class="radio" onchange="calcule()")
+                     label(for='radioSA')
+                        div(class="divCouleur divCouleurConUnSel" onclick="selLeveesCoul(this)") SA
+               hr
+               ul
+                  li
+                     input(type='radio' value='1' name='par' id='radioN' class="radio radioPar" onchange="calcule()")
+                     label(for='radioN' class="label labelParUnSel" onclick="selPar(this)") Nord
+                  li
+                     input(type='radio' value='2' name='par' id='radioS' class="radio radioPar" onchange="calcule()")
+                     label(for='radioS' class="label labelParUnSel" onclick="selPar(this)") Est
+                  li
+                     input(type='radio' value='3' name='par' id='radioE' class="radio radioPar" onchange="calcule()")
+                     label(for='radioE' class="label labelParUnSel" onclick="selPar(this)") Sud
+                  li
+                     input(type='radio' value='4' name='par' id='radioO' class="radio radioPar" onchange="calcule()")
+                     label(for='radioO' class="label labelParUnSel" onclick="selPar(this)") Ouest
+
+         div#divEnteteEntame(class="divEntete divEnteteDisSelect" onclick="afficheEntame()")
+            div(class='divSousEntete') Entame
+         div#divSectionEntame(class="divSection divSectionUnSel")
+            div.divSousSectionUnSel
+               h1(class="h1Section") Entame
+               ul
+                  li
+                     input(type='radio' value='2' name='entame' id='radioE2' class="radio radioEntame")
+                     label(for='radioE2' class="label labelEntameUnSel" onclick="selEntame(this)") 2
+                  li
+                     input(type='radio' value='3' name='entame' id='radioE3' class="radio radioEntame")
+                     label(for='radioE3' class="label labelEntameUnSel" onclick="selEntame(this)") 3
+                  li
+                     input(type='radio' value='4' name='entame' id='radioE4' class="radio radioEntame")
+                     label(for='radioE4' class="label labelEntameUnSel" onclick="selEntame(this)") 4
+                  li
+                     input(type='radio' value='5' name='entame' id='radioE5' class="radio radioEntame")
+                     label(for='radioE5' class="label labelEntameUnSel" onclick="selEntame(this)") 5
+                  li
+                     input(type='radio' value='6' name='entame' id='radioE6' class="radio radioEntame")
+                     label(for='radioE6' class="label labelEntameUnSel" onclick="selEntame(this)") 6
+                  li
+                     input(type='radio' value='7' name='entame' id='radioE7' class="radio radioEntame")
+                     label(for='radioE7' class="label labelEntameUnSel" onclick="selEntame(this)") 7
+                  li
+                     input(type='radio' value='8' name='entame' id='radioE8' class="radio radioEntame")
+                     label(for='radioE8' class="label labelEntameUnSel" onclick="selEntame(this)") 8
+                  li
+                     input(type='radio' value='9' name='entame' id='radioE9' class="radio radioEntame")
+                     label(for='radioE9' class="label labelEntameUnSel" onclick="selEntame(this)") 9
+                  li
+                     input(type='radio' value='10' name='entame' id='radioE10' class="radio radioEntame")
+                     label(for='radioE10' class="label labelEntameUnSel" onclick="selEntame(this)") 10
+                  br
+                  li
+                     input(type='radio' value='11' name='entame' id='radioEV' class="radio radioEntame")
+                     label(for='radioEV' class="label labelEntameUnSel" onclick="selEntame(this)") Valet
+                  li
+                     input(type='radio' value='12' name='entame' id='radioED' class="radio radioEntame")
+                     label(for='radioED' class="label labelEntameUnSel" onclick="selEntame(this)") Dame
+                  li
+                     input(type='radio' value='13' name='entame' id='radioER' class="radio radioEntame")
+                     label(for='radioER' class="label labelEntameUnSel" onclick="selEntame(this)") Roi
+                  li
+                     input(type='radio' value='1' name='entame' id='radioE1' class="radio radioEntame")
+                     label(for='radioE1' class="label labelEntameUnSel" onclick="selEntame(this)") As
+               hr
+               ul
+                  li
+                     input(type='radio' value='1' name='entameCouleur' id='radioTrEn' class="radio")
+                     label(for='radioTrEn')
+                        div(class="divCouleur divCouleurEntameUnSel" onclick="selEntameCouleur(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/1b.png")
+                  li
+                     input(type='radio' value='2' name='entameCouleur' id='radioCaEn' class="radio")
+                     label(for='radioCaEn')
+                        div(class="divCouleur divCouleurEntameUnSel" onclick="selEntameCouleur(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/2b.png")
+                  li
+                     input(type='radio' value='3' name='entameCouleur' id='radioCoEn' class="radio")
+                     label(for='radioCoEn')
+                        div(class="divCouleur divCouleurEntameUnSel" onclick="selEntameCouleur(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/3b.png")
+                  li
+                     input(type='radio' value='4' name='entameCouleur' id='radioPiEn' class="radio")
+                     label(for='radioPiEn')
+                        div(class="divCouleur divCouleurEntameUnSel" onclick="selEntameCouleur(this)")
+                           img(class="imgScore" src="images/Playing card suits icons/4b.png")
+         div#divEnteteResultat(class="divEntete divEnteteDisSelect" onclick="afficheResultat()")
+            div(class='divSousEntete') R&eacute;sultat
+         div#divSectionResultat(class="divSection divSectionUnSel")
+            div.divSousSectionUnSel
+               div#contratResume
+                  div Contrat
+                  div#sousContraResume
+               h1(class="h1Section") R&eacute;sultat
+               span Nombres de levées réussies
+               ul
+                  li
+                     div#divFait0.divFait(onclick="selFait(this)")
+                        input(type='radio' value='0' name='fait' id='radioFait0' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait0(for='radioFait0' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 0
+                  li
+                     div#divFait1.divFait(onclick="selFait(this)")
+                        input(type='radio' value='1' name='fait' id='radioFait1' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait1(for='radioFait1' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 1
+                  li
+                     div#divFait2.divFait(onclick="selFait(this)")
+                        input(type='radio' value='2' name='fait' id='radioFait2' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait2(for='radioFait2' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 2
+                  li
+                     div#divFait3.divFait(onclick="selFait(this)")
+                        input(type='radio' value='3' name='fait' id='radioFait3' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait3(for='radioFait3' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 3
+                  li
+                     div#divFait4.divFait(onclick="selFait(this)")
+                        input(type='radio' value='4' name='fait' id='radioFait4' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait4(for='radioFait4' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 4
+                  li
+                     div#divFait5.divFait(onclick="selFait(this)")
+                        input(type='radio' value='5' name='fait' id='radioFait5' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait5(for='radioFait5' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 5
+                  li
+                     div#divFait6.divFait(onclick="selFait(this)")
+                        input(type='radio' value='6' name='fait' id='radioFait6' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait6(for='radioFait6' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 6
+                  li
+                     div#divFait7.divFait(onclick="selFait(this)")
+                        input(type='radio' value='7' name='fait' id='radioFait7' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait7(for='radioFait7' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 7
+                  li
+                     div#divFait8.divFait(onclick="selFait(this)")
+                        input(type='radio' value='8' name='fait' id='radioFait8' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait8(for='radioFait8' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 8
+                  li
+                     div#divFait9.divFait(onclick="selFait(this)")
+                        input(type='radio' value='9' name='fait' id='radioFait9' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait9(for='radioFait9' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 9
+                  br
+                  li
+                     div#divFait10.divFait(onclick="selFait(this)")
+                        input(type='radio' value='10' name='fait' id='radioFait10' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait10(for='radioFait10' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 10
+                  li
+                     div#divFait11.divFait(onclick="selFait(this)")
+                        input(type='radio' value='11' name='fait' id='radioFait11' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait11(for='radioFait11' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 11
+                  li
+                     div#divFait12.divFait(onclick="selFait(this)")
+                        input(type='radio' value='12' name='fait' id='radioFait12' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait12(for='radioFait12' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 12
+                  li
+                     div#divFait13.divFait(onclick="selFait(this)")
+                        input(type='radio' value='13' name='fait' id='radioFait13' class="radio radioFait" onchange="calcule()")
+                        label.labelFait
+                        label#labelFait13(for='radioFait13' class="label labelFaitUnSel labelFaitDisplay" onclick="event.stopPropagation()") 13
+               div.dCat
+                  span.spanEq Points
+                  div.dCat
+                     span!=equipeNS
+                     input#pNS.txtPoints(type="text" name="pNS" value="0")
+                  div.dCat
+                     span!=equipeEO
+                     input#pEO.txtPoints(type="text" name="pEO" value="0")
+               input#btnCon.btnAjax(type="button" value="Continuer")
+      //input#btnReqAJAX.btnAjax(type="button" value="Valider")

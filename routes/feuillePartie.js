@@ -8,6 +8,7 @@ var lettre = require('../node_modules/lettre-equipe/lettreEquipe');
 
 
 router.get('/', function(req, res, next) {
+    console.log(req.query);
     res.render('feuillePartie', { title: 'Feuille de partie', feuille: creeFeuille(req)});
 });
 
@@ -17,25 +18,25 @@ function creeFeuille(req){
     var ligneJoueur2 = tableau.retourneTableauLigne(1);
     var nbE = parseInt(tableau.retourneNombreDEquipe());
 
-    //console.log(tableau.retourneNombreDEquipe());
+    //console.log(req.query);
 
-    feuille += '<button type="button" onclick="enregistrer()">Enregistrer</button><br><br>';
-    if(tableau.retournePhantome() == false) {
+    //feuille += '<button type="button" onclick="enregistrer()" class="bouton">Enregistrer</button><br><br>';
+    //if(tableau.retournePhantome() == false) {
         for (i = 1; i < ligneJoueur1.length; i++) {
-            ligneJoueur1[i] = req.query.name[i - 1];
-            ligneJoueur2[i] = req.query.name[i + nbE - 1];
+            ligneJoueur1[i] = req.query.name[i+(i-2)];
+            ligneJoueur2[i] = req.query.name[i+(i-1)];
         }
-    }else{
+   /* }else{
         for(i = 1; i < nbE; i++){
             ligneJoueur1[i] = req.query.name[i-1];
             ligneJoueur2[i] = req.query.name[i+nbE-2];
         }
-    }
+    }*/
     tableau.ecrireTableauLigne(0, ligneJoueur1);
     tableau.ecrireTableauLigne(1, ligneJoueur2);
 
-    console.log('partie');
-    console.log(tableau.retourneTableau());
+    //console.log('partie');
+    //console.log(tableau.retourneTableau());
     //console.log(pParR);
 
     if(tableau.retourneTypeScore().localeCompare('top') == 0){

@@ -1,0 +1,19 @@
+//
+   Created by Phil on 2016-06-05.
+
+script(src='./javascripts/enregistrerFeuille.js')
+div#divResultPlanchette
+   div#divResults
+   input#btnFermer.btnAjaxAnnuler(type="button" value="Fermer")
+div#divAcces!=rondesEtPlanchettes
+div#divPartie!=indexPartieInput
+div.divPage
+   h1.spanBlue R&eacute;sultats
+   div#divTableauRes
+      div#divNoms!=nomsJoueurs
+      //div#divResul
+         span Planchettes
+   //!=feuilleRes
+   br
+   input#btnActualiser(type="submit" value="Actualiser" class="bouton")
+   input#btnExporter(type="submit" value="Exporter" class="bouton")

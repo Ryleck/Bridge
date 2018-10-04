@@ -6,8 +6,7 @@ var router = express.Router();
 var tableau = require('../node_modules/tableau/tableau');
 var varPl = require('../node_modules/planchette/planchette');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res) {
     ecrireScore(req);
     res.render('terminer', { title: 'Terminer'});
 });
@@ -16,15 +15,21 @@ function ecrireScore(req) {
     var nbR = tableau.retourneNombreRondes();
     var nbP = tableau.retourneNombrePlanchette();
     var nbPpR = nbP / nbR;
-    console.log('*****************');
-    console.log(nbR);
-    console.log(req.query.table);
 
     var j = 0;
-    for(i = parseInt(1+nbPpR*(parseInt(nbR)-1)); i <= parseInt(nbPpR*(parseInt(nbR))); i++) {
-        //console.log(i);
-        varPl.setScore(parseInt(req.query.table), i, (parseInt(req.query.pNS[j])-parseInt(req.query.pEO[j])));
-        j++;
+
+    if(nbPpR > 1) {
+        for(i = parseInt(1+nbPpR*(parseInt(nbR)-1)); i <= parseInt(nbPpR*(parseInt(nbR))); i++) {
+
+// A changer
+            varPl.setScore(parseInt(req.body.table), i, (parseInt(req.body.pNS[j])-parseInt(req.body.pEO[j])));
+            j++;
+        }
+    } else {
+        //console.log(req.body);
+
+// A changer
+        varPl.setScore(parseInt(req.body.table), nbR, (parseInt(req.body.pNS)-parseInt(req.body.pEO)));
     }
     console.log(varPl.getPartie());
 }

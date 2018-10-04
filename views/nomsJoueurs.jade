@@ -1,0 +1,14 @@
+//
+   Created by Phil on 2017-10-13.
+
+extends layout
+block content
+   script(src='./javascripts/jquery-3.1.1.js')
+   script(src='./javascripts/ajouteNom.js')
+   div.divPage
+      h1=title
+      div#listeDesNoms
+         !=liste
+      form#formNom
+         input(type="text" name="nom")
+         input#ajouterNom(type="button" value="Ajouter")

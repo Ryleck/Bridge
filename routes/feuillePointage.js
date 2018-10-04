@@ -112,7 +112,7 @@ function creePlanchettes(equipeNS, equipeEO, pl){
         '</select>'+
         '</td>' +
         '<td id="contrat">' +
-        '<select id="resultat">' +
+        '<select id="resultat" onchange="calcule()">' +
         '<option value="0" disabled selected>Choisir</option>'+
         '<option value="1">+6</option>' +
         '<option value="2">+5</option>' +
